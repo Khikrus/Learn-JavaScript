@@ -15,8 +15,15 @@ pipeUp.src = "img/pipeUp.png";
 pipeBottom.src = "img/pipeBottom.png";
 
 //Звуковые файлы
+var fly = new Audio();
+var score_auduo = new Audio();
 
+fly.src = "audio/fly.mp3";
+score_auduo.src = "audio/score.mp3";
+
+//Очки
 var score = 0;
+
 //Позиция bird
 var xPos = 10;
 var yPos = 150;
@@ -31,6 +38,7 @@ document.addEventListener("keydown", moveUp);
 
 function moveUp() {
     yPos -= 20;
+    fly.play();
 }
 
 //Создание блоков
@@ -67,6 +75,7 @@ function draw() {
         }
         if(pipe[i].x == 5) {
             score++;
+            score_auduo.play();
         }
 
     }
